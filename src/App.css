@@ -1,0 +1,513 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --font-roboto: "Roboto Slab", serif;
+    --font-raleway: "Raleway", sans-serif;
+}
+
+body {
+    font-family: var(--font-roboto);
+    background: #780206;
+    background: -webkit-linear-gradient(to right, #061161, #780206);
+    background: linear-gradient(to right, #061161, #780206);
+}
+
+.app {
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 0.9px;
+    background: linear-gradient(90deg,
+            rgb(255, 255, 255) 0%,
+            rgba(249, 211, 180, 0) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: fit-content;
+}
+
+/* ============================================
+   TOP BAR - Toggle between Search & Saved
+   ============================================ */
+.top-bar {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0 1rem;
+}
+
+.toggle-btn {
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-family: var(--font-raleway);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #1f2123;
+    color: #a1a1a1;
+    border: 2px solid transparent;
+}
+
+.toggle-btn.active {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-color: white;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+.toggle-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ============================================
+   MESSAGE NOTIFICATION
+   ============================================ */
+.message {
+    background: #1f2123;
+    color: #9ef3fc;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    font-family: var(--font-raleway);
+    font-weight: 600;
+    border: 1px solid #9ef3fc;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   RECOMMENDATION BANNER
+   ============================================ */
+.recommendation-banner {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(31, 33, 35, 0.9);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin: 1rem 0;
+    border: 2px solid #667eea;
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.2);
+}
+
+.recommendation-banner h2 {
+    color: #f9d3b4;
+    font-family: var(--font-raleway);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.recommendation-card {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.recommendation-card img {
+    width: 120px;
+    height: 180px;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.recommendation-card h3 {
+    color: #9ef3fc;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.recommendation-card p {
+    color: #a1a1a1;
+    font-family: var(--font-raleway);
+    margin-bottom: 0.5rem;
+}
+
+.save-btn {
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-family: var(--font-raleway);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.save-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ============================================
+   POPULAR MOVIES SECTION
+   ============================================ */
+.popular-section {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(31, 33, 35, 0.8);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin: 1rem 0;
+}
+
+.popular-section h2 {
+    color: #f9d3b4;
+    font-family: var(--font-raleway);
+    margin-bottom: 1rem;
+}
+
+.popular-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.popular-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #1f2123;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+
+.popular-item:hover {
+    transform: translateX(10px);
+    background: #2a2d30;
+}
+
+.popular-item .rank {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 700;
+    font-family: var(--font-raleway);
+}
+
+.popular-item span:nth-child(2) {
+    color: #9ef3fc;
+    flex: 1;
+    font-family: var(--font-raleway);
+    font-weight: 600;
+}
+
+.popular-item .popularity {
+    color: #f9d3b4;
+    font-size: 0.9rem;
+    font-family: var(--font-raleway);
+}
+
+/* ============================================
+   SECTION TITLE
+   ============================================ */
+.section-title {
+    color: #f9d3b4;
+    font-family: var(--font-raleway);
+    margin: 2rem 0;
+    text-align: center;
+}
+
+/* ============================================
+   SEARCH BAR
+   ============================================ */
+.search {
+    width: 71%;
+    margin: 2rem 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1.75rem;
+    border-radius: 3rem;
+    background: #1f2123;
+    -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+    box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+}
+
+.search input {
+    flex: 1;
+    border: none;
+    font-size: 1.5rem;
+    font-family: var(--font-raleway);
+    font-weight: 500;
+    padding-right: 1rem;
+    outline: none;
+    color: #a1a1a1;
+    background: #1f2123;
+}
+
+.search img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.empty {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.empty h2 {
+    font-size: 1.25rem;
+    color: #f9d3b4;
+    font-family: var(--font-raleway);
+}
+
+.container {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ============================================
+   MOVIE CARD
+   ============================================ */
+.movie {
+    width: 310px;
+    height: 460px;
+    margin: 1.5rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+    box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+
+.movie div:nth-of-type(1) {
+    position: absolute;
+    padding: 16px;
+    width: 100%;
+    opacity: 0;
+    top: 0;
+    color: #f9d3b4;
+}
+
+.movie:hover {
+    box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05, 1.05);
+}
+
+.movie div:nth-of-type(2) {
+    width: 100%;
+    height: 100%;
+}
+
+.movie div:nth-of-type(2) img {
+    height: 100%;
+    width: 100%;
+}
+
+.movie div:nth-of-type(3) {
+    z-index: 2;
+    background-color: #343739;
+    padding: 16px 24px 24px 24px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.movie div:nth-of-type(3) span {
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.movie div:nth-of-type(3) h3 {
+    margin-top: 5px;
+    font-family: "Roboto Slab", serif;
+    color: #9ef3fc;
+}
+
+.movie:hover div:nth-of-type(2) {
+    height: 100%;
+    opacity: 0.3;
+}
+
+.movie:hover div:nth-of-type(3) {
+    background-color: transparent;
+}
+
+.movie:hover div:nth-of-type(1) {
+    opacity: 1;
+}
+
+/* ============================================
+   MOVIE ACTION BUTTONS
+   ============================================ */
+.movie-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.btn-save,
+.btn-delete,
+.btn-rate {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-family: var(--font-raleway);
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-rate {
+    background: #f39c12;
+    color: white;
+}
+
+.btn-save:hover,
+.btn-delete:hover,
+.btn-rate:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   RATING PICKER
+   ============================================ */
+.rating-picker {
+    display: flex;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+.star-btn {
+    padding: 0.3rem 0.6rem;
+    border-radius: 1rem;
+    background: #1f2123;
+    color: #f9d3b4;
+    font-size: 0.75rem;
+    font-family: var(--font-raleway);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #f9d3b4;
+}
+
+.star-btn:hover {
+    background: #f9d3b4;
+    color: #1f2123;
+    transform: scale(1.1);
+}
+
+/* ============================================
+   RATING STARS DISPLAY
+   ============================================ */
+.rating-stars {
+    color: #f39c12;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+
+.rating-stars small {
+    color: #a1a1a1;
+}
+
+/* ============================================
+   POPULARITY BADGE
+   ============================================ */
+.popularity-badge {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    font-family: var(--font-raleway);
+    font-weight: 600;
+    margin-top: 0.3rem;
+    text-align: center;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media screen and (max-width: 600px) {
+    .app {
+        padding: 4rem 2rem;
+    }
+
+    .search {
+        padding: 1rem 1.75rem;
+        width: 100%;
+    }
+
+    .search input {
+        font-size: 1rem;
+    }
+
+    .search img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .recommendation-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .app {
+        padding: 4rem 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        margin-top: 2rem;
+    }
+
+    .movie {
+        width: 100%;
+        margin: 1rem;
+    }
+}
+
